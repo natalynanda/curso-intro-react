@@ -3,7 +3,7 @@ import "./TodoCounter.css";
 
 function TodoCounter({ total = 100, completedTodos }) {
 
-  return (
+  return ( 
     <h2 key="idCounter" className="TodoCounter">
       Completaste {completedTodos} de {total} ToDo
     </h2>
