@@ -5,7 +5,11 @@ import {TodoSearch} from '../TodoSearch/TodoSearch';
 import {TodoCreate} from '../TodoCreate/TodoCreate';
 import {TodoList} from '../TodoList/TodoList';
 import {TodoItem} from '../TodoItem/TodoItem';
-import { Modal } from "../modal";
+import { Modal } from "../Modal";
+import { TodoForm } from "../TodoForm";
+import { TodosError } from "../TodosError";
+import { TodosLoading } from "../TodosLoading";
+import { EmptyTodos } from "../EmptyTodos";
 
 function AppUI() {
   const {
@@ -13,16 +17,19 @@ function AppUI() {
     loading,
     searchedValues,
     completeTodos,
-    deleteTodos
+    deleteTodos,
+    openModal,
+    setOpenModal
   } = useContext(TodoContext);
+
     return (
         <>
          <TodoCounter/>
           <TodoSearch/>
             <TodoList>
-              {error && <p>Desesperate, hubo un error ...</p>}
-              {loading && <p> Estamos Cargando, no desesperes ... </p>}
-              {(!loading &&!searchedValues.length) && <p>Crea tu primer ToDo!</p>}
+              {error && <TodosError error={error} />}
+              {loading && <TodosLoading/>}
+              {(!loading &&!searchedValues.length) && <EmptyTodos/>}
               {
                 searchedValues.map(todo => (
                   <TodoItem 
@@ -35,11 +42,17 @@ function AppUI() {
                 ))
               }
             </TodoList>
-            <Modal>
-              <p>Teletransportacion</p>
-            </Modal>
+
+            { !!openModal && (
+              <Modal>
+                <TodoForm/>
+              </Modal>
+            )}
+            
           
-          <TodoCreate/>
+          <TodoCreate
+            setOpenModal={setOpenModal}
+          />
     </>
     );
 }
