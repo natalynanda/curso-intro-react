@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/natalynanda/curso-intro-react/static/css/main.283de81f.css",
+    "main.js": "/natalynanda/curso-intro-react/static/js/main.8cf85b21.js",
+    "index.html": "/natalynanda/curso-intro-react/index.html",
+    "main.283de81f.css.map": "/natalynanda/curso-intro-react/static/css/main.283de81f.css.map",
+    "main.8cf85b21.js.map": "/natalynanda/curso-intro-react/static/js/main.8cf85b21.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.283de81f.css",
+    "static/js/main.8cf85b21.js"
+  ]
+}
